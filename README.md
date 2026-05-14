@@ -159,3 +159,29 @@ Volatility netscan analysis was performed to identify active and historical netw
 Wireshark was used to inspect network traffic, review SSH communication, and analyze packet-level activity associated with suspicious connections.
 
 ![Wireshark SSH Analysis](screenshots/network-analysis/wireshark-ssh-analysis.png)
+
+---
+
+# Security Recommendations
+
+Based on the investigation findings, the following remediation and hardening actions are recommended:
+
+* Investigate suspicious outbound network communication
+* Review and disable unauthorized startup persistence entries
+* Perform malware scanning and forensic validation
+* Restrict unnecessary outbound connections
+* Monitor network traffic for unusual SSH communication
+* Improve endpoint logging and centralized monitoring
+* Review process execution and startup behavior
+* Apply security patches and endpoint hardening controls
+* Implement SIEM alerting for suspicious process and connection activity
+* Perform continuous log monitoring and threat hunting activities
+
+---
+
+# Conclusion
+
+This project demonstrates a hands-on SOC investigation workflow involving process analysis, memory analysis, network traffic inspection, persistence analysis, and incident investigation techniques in a controlled lab environment.
+
+The investigation highlights how attackers may leave indicators across processes, memory, logs, persistence mechanisms, and network communications, emphasizing the importance of visibility, monitoring, and incident response readiness.
+
