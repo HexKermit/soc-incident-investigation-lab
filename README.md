@@ -185,3 +185,24 @@ This project demonstrates a hands-on SOC investigation workflow involving proces
 
 The investigation highlights how attackers may leave indicators across processes, memory, logs, persistence mechanisms, and network communications, emphasizing the importance of visibility, monitoring, and incident response readiness.
 
+---
+
+# MITRE ATT&CK Techniques Observed
+
+| Technique                                    | Description                                                            |
+| -------------------------------------------- | ---------------------------------------------------------------------- |
+| T1053 - Scheduled Task/Job                   | Persistence mechanisms may use scheduled tasks for execution           |
+| T1547 - Boot or Logon Autostart Execution    | Autoruns entries may indicate persistence activity                     |
+| T1049 - System Network Connections Discovery | Netstat and connection analysis identified active communications       |
+| T1057 - Process Discovery                    | Process analysis identified running system processes                   |
+| T1046 - Network Service Discovery            | Network and port analysis reviewed active communication channels       |
+| T1040 - Network Sniffing                     | Wireshark traffic analysis reviewed packet-level communication         |
+| T1105 - Ingress Tool Transfer                | Suspicious outbound communication may indicate remote payload activity |
+
+---
+
+# Disclaimer
+
+All activities, investigations, and analysis included in this repository were performed in authorized and controlled lab environments for educational and defensive security purposes only.
+
+
