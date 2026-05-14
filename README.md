@@ -1,10 +1,14 @@
 # SOC Incident Investigation: Compromised Windows Host Analysis
 
+![Status](https://img.shields.io/badge/Status-Complete-green)
+![Focus](https://img.shields.io/badge/Focus-SOC%20Investigation-blue)
+![MITRE](https://img.shields.io/badge/MITRE-ATT%26CK-red)
+
 ## Overview
 
-This hands-on SOC investigation project simulates the analysis of a compromised Windows system in a controlled lab environment. The investigation focuses on identifying indicators of compromise (IOCs), analyzing suspicious processes and network connections, reviewing logs, and documenting incident response findings.
+This hands-on SOC investigation project simulates the analysis of a compromised Windows system in a controlled lab environment.
 
-The project combines Windows host investigation, log analysis, packet analysis, Splunk investigation workflows, and forensic methodology.
+The investigation focused on identifying indicators of compromise (IOCs), analyzing suspicious processes and network connections, reviewing persistence mechanisms, and documenting incident response findings using multiple forensic and monitoring tools.
 
 ---
 
@@ -12,99 +16,68 @@ The project combines Windows host investigation, log analysis, packet analysis, 
 
 * Investigate indicators of compromise (IOCs)
 * Analyze suspicious processes and network connections
-* Review Windows and Linux logs
+* Review Windows and Linux log artifacts
 * Examine persistence mechanisms
-* Perform packet and traffic analysis
-* Understand incident response and forensic workflows
-* Document findings and remediation steps
-
----
-
-## Skills Demonstrated
-
-* Incident Response
-* SOC Investigation
-* Log Analysis
-* Splunk
-* Wireshark
-* Windows Forensics
-* IOC Analysis
-* Threat Detection
-* Network Traffic Analysis
-* Process Investigation
-* Vulnerability Analysis
+* Perform memory and packet analysis
+* Document investigation findings and remediation recommendations
 
 ---
 
 ## Tools Used
 
-* Splunk
-* Wireshark
-* NetworkMiner
-* Process Explorer
-* Autoruns
-* Netstat
-* Nmap
-* OpenVAS
-* Autopsy
-* Kali Linux
-* Windows Server
-* Linux CLI tools
+| Tool             | Purpose                              |
+| ---------------- | ------------------------------------ |
+| Splunk           | Log analysis and event investigation |
+| Wireshark        | Packet and traffic analysis          |
+| NetworkMiner     | Network artifact analysis            |
+| Process Explorer | Process and TCP/IP analysis          |
+| Autoruns         | Persistence investigation            |
+| Netstat          | Connection analysis                  |
+| Volatility       | Memory analysis                      |
+| Nmap             | Network discovery                    |
+| OpenVAS          | Vulnerability analysis               |
+| Autopsy          | Digital forensics workflow           |
+| Kali Linux       | Investigation platform               |
 
 ---
 
-## Lab Components
+## Investigation Scope
 
-### 1. Investigating a Network Compromise
+### 1. Network Compromise Investigation
 
 * Volatile data collection
-* RAM analysis
+* RAM acquisition and analysis
 * Scheduled task investigation
 * Service analysis
 * File artifact investigation
 
-### 2. Finding Malicious Indicators
+### 2. Malicious Indicator Discovery
 
 * Process analysis
 * Suspicious connection analysis
 * Registry persistence investigation
-* IOC discovery
+* IOC identification
 
-### 3. Log Analysis in Linux and Splunk
+### 3. Log Analysis and Threat Hunting
 
 * Linux authentication logs
 * Apache access logs
 * Splunk investigation workflows
-* Threat hunting basics
+* Authentication event analysis
 
-### 4. Deep Packet Analysis
+### 4. Packet and Traffic Analysis
 
 * Protocol analysis
 * Packet inspection
-* Traffic filtering
-* Network artifact analysis
+* SSH traffic analysis
+* Network artifact correlation
 
 ### 5. Digital Forensics Workflow
 
 * Evidence handling
-* Chain of custody concepts
 * Forensic reporting
+* Chain of custody concepts
 * Autopsy investigation basics
-
----
-
-## Key Takeaways
-
-* Attackers often leave indicators in processes, logs, memory, and network traffic.
-* Log analysis and packet analysis are critical during incident response.
-* Visibility and monitoring are essential for threat detection.
-* Documentation and reporting are important parts of security operations.
-
----
-
-## Status
-
-Project documentation and investigation reports are currently being added.
 
 ---
 
@@ -122,7 +95,7 @@ The investigation identified suspicious outbound network connections associated 
 
 ### Persistence Mechanism Analysis
 
-Autoruns was used to identify suspicious startup persistence entries and unauthorized application execution paths. Persistence mechanisms are commonly used by attackers to maintain long-term access.
+Autoruns was used to identify suspicious startup persistence entries and unauthorized application execution paths commonly associated with attacker persistence techniques.
 
 ![Autoruns Persistence Analysis](screenshots/process-analysis/autoruns-persistence-analysis.png)
 
@@ -179,30 +152,43 @@ Based on the investigation findings, the following remediation and hardening act
 
 ---
 
-# Conclusion
+# IOC Summary
 
-This project demonstrates a hands-on SOC investigation workflow involving process analysis, memory analysis, network traffic inspection, persistence analysis, and incident investigation techniques in a controlled lab environment.
-
-The investigation highlights how attackers may leave indicators across processes, memory, logs, persistence mechanisms, and network communications, emphasizing the importance of visibility, monitoring, and incident response readiness.
+| Indicator      | Type                          |
+| -------------- | ----------------------------- |
+| svch0st.exe    | Suspicious Process            |
+| explora.exe    | Suspicious Executable         |
+| 175.45.176.199 | External IP Address           |
+| 175.45.176.200 | External IP Address           |
+| Port 2222      | Suspicious Network Connection |
+| Port 995       | Suspicious Network Connection |
 
 ---
 
 # MITRE ATT&CK Techniques Observed
 
-| Technique                                    | Description                                                            |
-| -------------------------------------------- | ---------------------------------------------------------------------- |
-| T1053 - Scheduled Task/Job                   | Persistence mechanisms may use scheduled tasks for execution           |
-| T1547 - Boot or Logon Autostart Execution    | Autoruns entries may indicate persistence activity                     |
-| T1049 - System Network Connections Discovery | Netstat and connection analysis identified active communications       |
-| T1057 - Process Discovery                    | Process analysis identified running system processes                   |
-| T1046 - Network Service Discovery            | Network and port analysis reviewed active communication channels       |
-| T1040 - Network Sniffing                     | Wireshark traffic analysis reviewed packet-level communication         |
-| T1105 - Ingress Tool Transfer                | Suspicious outbound communication may indicate remote payload activity |
+| Technique                                    | Description                                  |
+| -------------------------------------------- | -------------------------------------------- |
+| T1053 - Scheduled Task/Job                   | Persistence through scheduled task execution |
+| T1547 - Boot or Logon Autostart Execution    | Startup persistence mechanisms               |
+| T1049 - System Network Connections Discovery | Active connection analysis                   |
+| T1057 - Process Discovery                    | Running process investigation                |
+| T1046 - Network Service Discovery            | Network and port analysis                    |
+| T1040 - Network Sniffing                     | Packet capture and traffic inspection        |
+| T1105 - Ingress Tool Transfer                | Suspicious outbound communication activity   |
+
+---
+
+## Analysis Summary
+
+The investigation identified multiple indicators of compromise across process execution, memory artifacts, persistence mechanisms, and network communications.
+
+Correlating host-based artifacts with network activity improved visibility into suspicious behavior and persistence techniques commonly associated with post-compromise activity.
+
+The investigation demonstrates how endpoint visibility, memory analysis, and network traffic inspection can support SOC investigations and incident response workflows.
 
 ---
 
 # Disclaimer
 
 All activities, investigations, and analysis included in this repository were performed in authorized and controlled lab environments for educational and defensive security purposes only.
-
-
