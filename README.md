@@ -105,3 +105,57 @@ The project combines Windows host investigation, log analysis, packet analysis, 
 ## Status
 
 Project documentation and investigation reports are currently being added.
+
+---
+
+# Investigation Evidence
+
+## Process Investigation
+
+### Process Explorer TCP/IP Analysis
+
+The investigation identified suspicious outbound network connections associated with active processes. Process Explorer was used to correlate running processes with active TCP/IP connections and identify unusual remote communication.
+
+![Process Explorer Analysis](screenshots/process-analysis/process-explorer-tcp-analysis.png)
+
+---
+
+### Persistence Mechanism Analysis
+
+Autoruns was used to identify suspicious startup persistence entries and unauthorized application execution paths. Persistence mechanisms are commonly used by attackers to maintain long-term access.
+
+![Autoruns Persistence Analysis](screenshots/process-analysis/autoruns-persistence-analysis.png)
+
+---
+
+### Memory Process Analysis
+
+Volatility Framework was used to review running processes from a memory image and identify potentially suspicious activity within system memory artifacts.
+
+![Volatility Process Analysis](screenshots/process-analysis/volatility-pslist-analysis.png)
+
+---
+
+# Network Investigation
+
+### Suspicious Network Connections
+
+Netstat analysis identified active established connections and associated process identifiers (PIDs), helping correlate suspicious communication with running processes.
+
+![Netstat Connection Analysis](screenshots/network-analysis/netstat-established-connections.png)
+
+---
+
+### Memory-Based Network Analysis
+
+Volatility netscan analysis was performed to identify active and historical network connections from memory artifacts.
+
+![Volatility Netscan Analysis](screenshots/network-analysis/volatility-netscan-analysis.png)
+
+---
+
+### Packet and Traffic Analysis
+
+Wireshark was used to inspect network traffic, review SSH communication, and analyze packet-level activity associated with suspicious connections.
+
+![Wireshark SSH Analysis](screenshots/network-analysis/wireshark-ssh-analysis.png)
